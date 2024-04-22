@@ -37,6 +37,6 @@ jobs:
     - name: Build Dockerfile
       run: | #kathetos gia na enoso polles entoles mazi
         echo ${{ secrets.DOCKER_TOKEN }} | docker login -u sof00m --password-stdin
-        docker build -t sof00m/test_accenture .
-        docker push sof00m/test_accenture
+        docker build -t sof00m/test_accenture:$(date +'%Y-%m-%d') .
+        docker push sof00m/test_accenture:$(date +'%Y-%m-%d')
     
