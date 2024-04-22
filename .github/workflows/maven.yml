@@ -35,6 +35,8 @@ jobs:
       run: mvn -B package --file pom.xml
 
     - name: Build Dockerfile
-      run: docker build -t test_acccenture .
-
+      run: | #kathetos gia na enoso polles entoles mazi
+        echo ${{ secrets.DOCKER_TOKEN }} | docker login -u sof00m --password-stdin
+        docker build -t test_acccenture .
+        docker push sof00m/test_accenture
     
